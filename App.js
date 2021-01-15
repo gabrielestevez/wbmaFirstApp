@@ -4,6 +4,7 @@ import {
   FlatList,
   Image,
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -51,17 +52,19 @@ const App = () => {
         renderItem={({item}) => {
           return (
             <TouchableOpacity>
-              <Image
-                style={{width: 250, height: 250}}
-                source={{uri: item.thumbnails.w160}}
-              />
-              <View>
-                <Text>{item.title}</Text>
-                <View style={styles.header} />
-                <Text>{item.description}</Text>
-                <View style={styles.infoArea} />
-                <View style={styles.footerArea} />
-              </View>
+              <ScrollView>
+                <Image
+                  style={{flex: 1, height: 120}}
+                  source={{uri: item.thumbnails.w160}}
+                />
+                <View>
+                  <Text>{item.title}</Text>
+                  <View style={styles.header} />
+                  <Text>{item.description}</Text>
+                  <View style={styles.infoArea} />
+                  <View style={styles.footerArea} />
+                </View>
+              </ScrollView>
             </TouchableOpacity>
           );
         }}
@@ -83,15 +86,15 @@ const styles = StyleSheet.create({
   header: {
     width: 50,
     height: 50,
-    backgroundColor: 'powderblue',
+    backgroundColor: 'lightblue',
   },
   infoArea: {
-    width: 50,
+    width: '100%',
     height: 50,
     backgroundColor: 'skyblue',
   },
   footerArea: {
-    width: 50,
+    width: '100%',
     height: 50,
     backgroundColor: 'steelblue',
   },
